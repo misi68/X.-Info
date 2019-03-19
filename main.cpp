@@ -1,39 +1,47 @@
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
 int main()
 {
 
+    int aux,i,j,n,V[1000],szorzat=1;
 
+    cin >>n;
 
+    for(i=0;i<n;i++){
 
+      V[i]=rand()%(n*10);
 
-
-
-
-int n;
-    cout << "n = ";
-    cin >> n;
-
-    int nr_2, nr_1, nr_0;
-    nr_0 = 1;
-    nr_1 = 1;
-
-    cout << nr_0 << "\n" << nr_1 << "\n";
-
-    for(int i = 3; i <= n; i++)
-    {
-        nr_2 = nr_1 + nr_0;
-        nr_0 = nr_1;
-        nr_1 = nr_2;
-
-        cout << nr_2 << "\n";
     }
 
 
+    for(i=0;i<n-1;i++){
+     for(j=i+1;j<n;j++){
+
+       if(V[i]>V[j]){
+
+            aux=V[j];
+            V[j]=V[i];
+            V[i]=aux;
+          }
 
 
+
+     }
+
+    }
+
+
+        cout <<V[3]<<endl;
+        cout <<V[n-2]<<endl;
+
+
+
+
+      szorzat=szorzat*V[3]*V[n-2];
+      cout<<szorzat<<endl;
 
 
 
