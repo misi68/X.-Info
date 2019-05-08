@@ -1,51 +1,37 @@
 #include <iostream>
-#include <stdlib.h>
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
+    int x,i,n=10000,y;
+    int v[n];
 
-    int aux,i,j,n,V[1000],szorzat=1;
+    cin >>x;
+    cin >>y;
 
-    cin >>n;
+    ofstream out("bac.txt");
 
-    for(i=0;i<n;i++){
+    v[1]=0;
+    v[2]=3;
 
-      V[i]=rand()%(n*10);
-
-    }
-
-
-    for(i=0;i<n-1;i++){
-     for(j=i+1;j<n;j++){
-
-       if(V[i]>V[j]){
-
-            aux=V[j];
-            V[j]=V[i];
-            V[i]=aux;
-          }
+    i=2;
 
 
+    while(v[i]<y){
 
-     }
+      i=i+1;
+      v[i]=2*v[i-1]-v[i-2]+2;
 
     }
+    n=i;
 
+    for(i=n;i>0;i--){
 
-        cout <<V[3]<<endl;
-        cout <<V[n-2]<<endl;
+      out << v[i]<<"  ";
 
-
-
-
-      szorzat=szorzat*V[3]*V[n-2];
-      cout<<szorzat<<endl;
-
-
-
-
+    }
 
     return 0;
 }
